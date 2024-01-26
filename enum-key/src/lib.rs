@@ -1,6 +1,8 @@
 //! Used for getting keys for algebraic-type enums and referencing algebraic-type enum variants by their key.
 //!
 //! # Example
+//!
+//! A simple example of using the derive macro:
 //! ```
 //! use enum_key::{EnumKey, KeyableEnum};
 //!
@@ -18,6 +20,25 @@
 //! assert_eq!(Key::VALUES, &[Key::A, Key::B, Key::C], "VALUES should contain entries for each variant");
 //! assert_eq!(MyEnum::A(42).get_enum_key(), Key::A, "Variant A should have a key of A");
 //! ```
+//!
+//! A simple example using the `key_enum` attribute:
+//! ```
+//! use enum_key::KeyableEnum;
+//!
+//! #[derive(KeyableEnum)]
+//! #[keyable_enum(key_enum = MyKey)]
+//! pub enum MyEnum {
+//!     A(u8),
+//!     B(u8),
+//! }
+//!
+//! assert_eq!(MyEnum::A(42).get_enum_key(), MyKey::A, "Variant A should have a key A");
+//! ```
+//!
+//! # Macro Attributes
+//!
+//! The macro has attributes:
+//! * `key_enum` - An optional identifier used for the name of the enum used for keys of the original enum.
 
 use std::fmt::Debug;
 use std::hash::Hash;
