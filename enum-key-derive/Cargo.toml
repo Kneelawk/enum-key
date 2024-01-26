@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 authors = ["kneelawk <kneelawk@gmail.com>"]
 description = "Derive macro for KeyableEnum trait"
+license = "MIT"
+repository = "https://github.com/Kneelawk/enum-key.git"
 
 [lib]
 proc-macro = true
