@@ -1,0 +1,15 @@
+[package]
+name = "enum-key"
+version = "0.1.0"
+edition = "2021"
+authors = ["kneelawk <kneelawk@gmail.com>"]
+description = "Contains KeyableEnum trait allowing algebraic data-types to have keys associated with each type."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+derive = ["enum-key-derive"]
+default = ["derive"]
+
+[dependencies]
+enum-key-derive = { path = "../enum-key-derive", optional = true }
